@@ -16,7 +16,7 @@ public class MinPerimeterRectangle {
     }
 
     public static int solution(int N) {
-        int min = 0;
+        /* int min = 0;
 
         // find factors
         ArrayList<Integer> factors = new ArrayList<>();
@@ -37,16 +37,16 @@ public class MinPerimeterRectangle {
         //check for vals
         for(int i = 1; i < factors.size(); i++) {
             //System.out.print(factors.get(i) + " ");
-            /* if(i != factors.size()) { 
-                for(int j = 0; j < factors.size(); j++) {
-                // System.out.print(factors.get(j) + " ");
+            // if(i != factors.size()) { 
+            //     for(int j = 0; j < factors.size(); j++) {
+            //     // System.out.print(factors.get(j) + " ");
         
-                int prod = factors.get(i) * factors.get(i+1);
-                if(prod == N && prod > min && j != factors.size()) {
-                    min = prod;
-                }
-            }
-            } */
+            //     int prod = factors.get(i) * factors.get(i+1);
+            //     if(prod == N && prod > min && j != factors.size()) {
+            //         min = prod;
+            //     }
+            // }
+            // }
             System.out.println("here");
             int factor = N / i;
             if(N % i == 0) {
@@ -65,6 +65,28 @@ public class MinPerimeterRectangle {
             System.out.println(" ");
         }
         System.out.println("\n");
-        return min;
+        return min; */
+
+        int sq = (int) Math.sqrt(N);
+
+        int factor = 0;
+        int perimeter = 0;
+        int minPerimeter = Integer.MAX_VALUE;
+
+        if(Math.pow(sq, 2) != N) {
+            sq++;
+        } else {
+            minPerimeter = 2 * (sq + sq);
+        }
+
+        for(int i = 1; i < sq; i++) {
+            if(N % i == 0) {
+                factor = N / i;
+                perimeter = 2 * (factor + i);
+                minPerimeter = Math.min(perimeter, minPerimeter);
+            }
+        }
+
+        return minPerimeter;
     }
 }
