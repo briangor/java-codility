@@ -4,6 +4,15 @@ public class MinPerimeterRectangle {
     public static void main(String[] args) {
         int N = 30;
         System.out.println(solution(N));
+        System.out.println("--------------");
+        /* System.out.println(solution(4));
+        System.out.println("--------------");
+        System.out.println(solution(16));
+        System.out.println("--------------");
+        System.out.println(solution(40));
+        System.out.println("--------------");
+        System.out.println(solution(1));
+        System.out.println("--------------"); */
     }
 
     public static int solution(int N) {
@@ -18,11 +27,17 @@ public class MinPerimeterRectangle {
             } 
         }
         System.out.println("\n");
+        System.out.println("fators" + factors);
+        System.out.println("here0");
+
+        if(factors.size() == 1) {
+            return 2 * (N + N);
+        }
 
         //check for vals
-        for(int i = 0; i < factors.size(); i++) {
+        for(int i = 1; i < factors.size(); i++) {
             //System.out.print(factors.get(i) + " ");
-            if(i != factors.size()) { 
+            /* if(i != factors.size()) { 
                 for(int j = 0; j < factors.size(); j++) {
                 // System.out.print(factors.get(j) + " ");
         
@@ -31,11 +46,25 @@ public class MinPerimeterRectangle {
                     min = prod;
                 }
             }
+            } */
+            System.out.println("here");
+            int factor = N / i;
+            if(N % i == 0) {
+                
+                System.out.println("(" + i + ", " + factor + ")");
+                int sum = 2 * (i + factor);
+                min = sum;
+
+                if(sum < min) {
+                    min = sum;
+                }
+                System.out.print("sum: " + sum + " min: " + min);
+
             }
             
             System.out.println(" ");
         }
         System.out.println("\n");
-        return N;
+        return min;
     }
 }
