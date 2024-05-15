@@ -7,7 +7,7 @@ public class ChocolatesByNumbers {
     }
 
     public static int solution(int N, int M) {
-        int count = 1;
+        /* int count = 1;
 
         // get choco from the fn
         int i = 0;
@@ -19,7 +19,14 @@ public class ChocolatesByNumbers {
             //System.out.print(i + " ");
         }
 
-        return count;
+        return count; */
 
+        return N / gcdByDivision(N, M);
+
+    }
+
+    public static int gcdByDivision(int A, int B) {
+        if(A % B == 0) return B;
+        else return gcdByDivision(B, A % B);
     }
 }
