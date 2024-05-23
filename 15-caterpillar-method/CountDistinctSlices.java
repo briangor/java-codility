@@ -31,12 +31,13 @@ public class CountDistinctSlices {
                 
                 if(A[i] <= A[j]) {
                     System.out.print("("+i+", "+j+")");
+                    count++;
                 }
 
             }
             System.out.print("\n");
         }
         System.out.print("\n");
-        return 0;
+        return count;
     }
 }
