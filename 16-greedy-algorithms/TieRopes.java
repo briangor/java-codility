@@ -12,9 +12,10 @@ public class TieRopes {
 
         for(int i = 0; i < len; i++) {
             System.out.print(A[i] + ", ");
-            if(K > sum) {
-                sum = sum + A[i];
+            sum +=A[i];
+            if(sum >= K) {
                 count++;
+                sum = 0;
             }
         }
         System.out.println("\n");
