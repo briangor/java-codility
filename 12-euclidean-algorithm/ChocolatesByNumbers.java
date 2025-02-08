@@ -22,6 +22,7 @@ public class ChocolatesByNumbers {
         return count; */
 
         return N / gcdByDivision(N, M);
+//TODO: this fn is sus! clean up
 
     }
 
